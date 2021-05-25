@@ -1,0 +1,13 @@
+# Air Quality API
+
+###
+# baseURL
+@baseURL = http://localhost:3000
+
+###
+# Find NO2 average with date range filter
+GET {{baseURL}}/airquality?start_date=2016-10-05&end_date=2016-11-05&variable=no2&measurement=avg
+
+###
+# Find NO2 max without date range filter
+GET {{baseURL}}/airquality?variable=no2&measurement=max
