@@ -13,7 +13,9 @@ class AirQualityRoute implements Route {
   }
 
   private initializeRoutes() {
-    this.router.get(`${this.path}`, this.airQualityController.getStatisticalMeasurement);
+    this.router.get(`${this.path}`, this.airQualityController.getStatisticalMeasurementWithPopulation);
+    this.router.get(`${this.path}/timeserie`, this.airQualityController.getTimeserie);
+    this.router.get(`${this.path}/stations`, this.airQualityController.getStations);
   }
 }
 

@@ -5,9 +5,17 @@
 @baseURL = http://localhost:3000
 
 ###
-# Find NO2 average with date range filter
+# Find NO2 average with date range filter with population
 GET {{baseURL}}/airquality?start_date=2016-10-05&end_date=2016-11-05&variable=no2&measurement=avg
 
 ###
-# Find NO2 max without date range filter
-GET {{baseURL}}/airquality?variable=no2&measurement=max
+# Find NO2 average with date range filter and timeserie
+GET {{baseURL}}/airquality/timeserie?start_date=2016-10-05&end_date=2016-11-05&variable=no2&measurement=avg&step=1d&station_id=aq_jaen
+
+###
+# TEST Find NO2 average with date range filter and timeserie
+GET {{baseURL}}/airquality/timeserie?start_date=2016-10-05&end_date=2016-12-10&variable=no2&measurement=avg&step=1w&station_id=aq_uam
+
+###
+# TEST Get stations in geometry
+GET {{baseURL}}/airquality/stations

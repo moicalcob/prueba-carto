@@ -17,3 +17,16 @@ export const isEmpty = (value: string | number | object): boolean => {
     return false;
   }
 };
+
+export function get_postgres_interval(step: string): string {
+  switch (step) {
+    case '1d':
+      return '1 DAY';
+    case '1w':
+      return '1 WEEK';
+    case '1h':
+      return '1 HOUR';
+    default:
+      return '1 DAY';
+  }
+}
