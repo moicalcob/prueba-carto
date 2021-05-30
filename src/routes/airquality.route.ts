@@ -1,6 +1,5 @@
 import { Router } from 'express';
 import Route from '@interfaces/routes.interface';
-import validationMiddleware from '@middlewares/validation.middleware';
 import AirQualityController from '@/controllers/airquality.controller';
 
 class AirQualityRoute implements Route {
@@ -13,9 +12,8 @@ class AirQualityRoute implements Route {
   }
 
   private initializeRoutes() {
-    this.router.get(`${this.path}`, this.airQualityController.getStatisticalMeasurementWithPopulation);
-    this.router.get(`${this.path}/timeserie`, this.airQualityController.getTimeserie);
-    this.router.get(`${this.path}/stations`, this.airQualityController.getStations);
+    this.router.post(`${this.path}`, this.airQualityController.getStatisticalMeasurementWithPopulation);
+    this.router.post(`${this.path}/timeserie`, this.airQualityController.getTimeserie);
   }
 }
 

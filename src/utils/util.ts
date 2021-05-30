@@ -30,3 +30,12 @@ export function get_postgres_interval(step: string): string {
       return '1 DAY';
   }
 }
+
+export function get_station_ids_in_query(stations: string[]): string {
+  const resp = `'${stations.join(`','`)}'`;
+  return resp;
+}
+
+export function clean_timeserie_response(response) {
+  return response.data.rows.filter(row => row.period_end);
+}

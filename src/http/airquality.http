@@ -6,16 +6,94 @@
 
 ###
 # Find NO2 average with date range filter with population
-GET {{baseURL}}/airquality?start_date=2016-10-05&end_date=2016-11-05&variable=no2&measurement=avg
+POST {{baseURL}}/airquality HTTP/1.1
+content-type: application/json
+
+{
+    "start_date":"2016-10-05",
+    "end_date":"2016-11-05",
+    "variable":"no2",
+    "statistical_measurement":"avg"
+}
 
 ###
 # Find NO2 average with date range filter and timeserie
-GET {{baseURL}}/airquality/timeserie?start_date=2016-10-05&end_date=2016-11-05&variable=no2&measurement=avg&step=1d&station_id=aq_jaen
+POST {{baseURL}}/airquality/timeserie
+content-type: application/json
+
+{
+    "start_date":"2016-10-05",
+    "end_date":"2016-12-05",
+    "variable":"no2",
+    "statistical_measurement":"avg",
+    "step":"1d",
+    "station_id":"aq_jaen"
+}
 
 ###
 # TEST Find NO2 average with date range filter and timeserie
-GET {{baseURL}}/airquality/timeserie?start_date=2016-10-05&end_date=2016-12-10&variable=no2&measurement=avg&step=1w&station_id=aq_uam
+POST {{baseURL}}/airquality/timeserie
+content-type: application/json
+
+{
+    "start_date":"2016-10-05",
+    "end_date":"2016-12-10",
+    "variable":"no2",
+    "statistical_measurement":"avg",
+    "step":"1w",
+    "station_id":"aq_uam"
+}
 
 ###
-# TEST Get stations in geometry
-GET {{baseURL}}/airquality/stations
+# TEST Find NO2 average with date range filter and timeserie
+POST {{baseURL}}/airquality/timeserie
+content-type: application/json
+
+{
+    "start_date":"2016-10-05",
+    "end_date":"2016-12-10",
+    "variable":"no2",
+    "statistical_measurement":"avg",
+    "step":"1w",
+    "geom": {
+        "type": "Polygon",
+        "coordinates": [
+        [
+          [-3.63289587199688, 40.56439731247202],
+          [-3.661734983325005, 40.55618117044514],
+          [-3.66310827434063, 40.53583209794804],
+          [-3.6378740519285206, 40.52421992151271],
+          [-3.6148714274168015, 40.5239589506112],
+          [-3.60543005168438, 40.547181381686634],
+          [-3.63289587199688, 40.56439731247202]
+        ]
+      ]
+    }
+}
+
+###
+# TEST Find NO2 average with date range filter and timeserie
+POST {{baseURL}}/airquality/timeserie
+content-type: application/json
+
+{
+    "start_date":"2016-10-05",
+    "end_date":"2016-12-10",
+    "variable":"no2",
+    "statistical_measurement":"avg",
+    "step":"1w",
+    "stations": ["aq_jaen","aq_salvia"]
+}
+
+###
+# TEST Find NO2 average with date range filter and timeserie negative case
+POST {{baseURL}}/airquality/timeserie
+content-type: application/json
+
+{
+    "start_date":"2016-10-05",
+    "end_date":"2016-12-10",
+    "variable":"no2",
+    "statistical_measurement":"avg",
+    "step":"1w"
+}

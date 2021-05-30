@@ -11,5 +11,7 @@ interface StationTimeserieParams {
   statistical_measurement: string;
   start_date: string;
   end_date: string;
-  station_id: string;
+  station_id?: string;
+  geom?: string;
+  stations?: string[];
 }
