@@ -10,6 +10,20 @@ You can find the resolution in tickets/ticket1.html (line 73)
 
 The query is selecting from a table that contains the countries in the EU each country's name, total population (this is obtained using the relationship with populated_places' table) and the number of populated places for each country. The relationship is been established with PostGIS when a country and a populated place is sharing the same space (obtained by the ST_Intersects operation).
 
+## API
+
+Run the following command to install the npm packaged required to run the API:
+
+```console
+npm install
+```
+
+When all the packages are installed, you can run the API in development mode with the following command:
+
+```console
+npm start dev
+```
+
 ## Authentication
 
 In order to develop an authentication mechanism I would use API Keys to authenticate the requests received by the backend. APY Keys can be signed with a payload that contains the authenticated user's info and we can store the keys in a database, so it's esay to check how many times an user is calling the API.
